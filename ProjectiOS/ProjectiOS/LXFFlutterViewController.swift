@@ -16,6 +16,10 @@ class LXFFlutterViewController: FlutterViewController {
     
     var isForbidResponseForFlutter = false
     
+    deinit {
+        print("deinit -- LXFFlutterViewController")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -98,5 +102,23 @@ extension LXFFlutterViewController {
             }
         }
         return false
+    }
+}
+
+private var LXFTestkey: Void?
+
+extension UIView {
+    var lxf_test: String? {
+        get {
+            return objc_getAssociatedObject(self, &LXFTestkey) as? String
+        }
+        
+        set {
+            objc_setAssociatedObject(
+                self,
+                &LXFTestkey, newValue,
+                .OBJC_ASSOCIATION_RETAIN_NONATOMIC
+            )
+        }
     }
 }

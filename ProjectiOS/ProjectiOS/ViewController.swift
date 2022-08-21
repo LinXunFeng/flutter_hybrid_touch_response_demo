@@ -33,12 +33,13 @@ class ViewController: UIViewController {
             
             let popView = LXFPopView(frame: CGRect(x: 0, y: 0, width: screenW, height: screenH))
             flutterVc.view.addSubview(popView)
+            flutterVc.view.lxf_test = "abc"
 //            self.navigationController?.view.addSubview(popView)
             popView.checkInfoBlock = { [weak self] in
                 guard let self = self else { return }
                 self.navigationController?.pushViewController(InfoViewController(), animated: true)
             }
-            
+            print(flutterVc.view.lxf_test ?? "")
         }
     }
 }
