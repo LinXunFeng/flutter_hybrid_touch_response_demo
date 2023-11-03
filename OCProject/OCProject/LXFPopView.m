@@ -25,7 +25,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"dealloc");
+    NSLog(@"dealloc -- LXFPopView");
 }
 
 - (void)initUI {
